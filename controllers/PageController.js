@@ -1,5 +1,5 @@
 const index = (req, res) => {
-    res.render('index');
+    res.render('index', { user: req.user});
 }
 
 const about = (req, res) => {
@@ -10,16 +10,17 @@ const contact = (req, res) => {
 }
 
 const login = (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', { user: req.user });
 }
 const redirect = (req, res) => {
-    res.send('Code redirected from google')
+    res.redirect('/admin');
 }
+
 
 module.exports = {
     index,
     about,
     contact,
     login,
-    redirect
+    redirect,
 }
