@@ -8,5 +8,14 @@
   },
   "keywords": [],
   "author": "iamLeb",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.2",
+    "express-edge": "^3.0.0",
+    "mongoose": "^8.0.1",
+    "nodemon": "^3.0.1",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
 }
