@@ -1,0 +1,26 @@
+* {
+    margin: 0; padding: 0;
+    color: #fff;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.active {
+    border-bottom: 2px solid lemonchiffon;
+}
+
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 56px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-evenly;
+}

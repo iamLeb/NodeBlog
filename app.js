@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const database = require('./database/connect');
@@ -14,14 +15,17 @@ app.set('view engine', `${__dirname}/views`)
 app.use(express.static('public'));
 
 
-app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [process.env.KEYS]
-}));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}))
 
 // initialize passport
 app.use(passport.initialize())
 app.use(passport.session());
+
 app.use(routes);
 
 
