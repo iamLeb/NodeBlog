@@ -24,7 +24,7 @@ passport.use(
         // console.log(profile.photos[0].value);
 
         //check if user already exists
-        User.findOne({googleid: profile.id})
+        User.findOne({googleId: profile.id})
             .then(existUser => {
                 if (existUser) {
                     // do not add new user
