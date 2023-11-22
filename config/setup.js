@@ -18,7 +18,7 @@ passport.use(
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         callbackURL: '/auth/google/redirect',
-        scope: ['profile']
+        scope: ['email', 'profile']
     }, (accessToken, refreshToken, profile, done) => {
         // catch call back from Google
         // console.log(profile.photos[0].value);
@@ -33,6 +33,7 @@ passport.use(
                     new User({
                         googleId: profile.id,
                         name: profile.displayName,
+                        email: profile.emails[0].value,
                         photo: profile.photos[0].value
                     }).save().then(newUser => {
                         done(null, newUser);

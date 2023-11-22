@@ -1,0 +1,40 @@
+@layout('layouts/admin')
+@section('content')
+<div class="mb-5 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2 class="text-center">Posts</h2>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin/posts/create"><h4>Create New Post</h4></a>
+    </div>
+</div>
+
+<div class="row">
+    @if(posts != 0)
+        @each(post in posts)
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="https://source.unsplash.com/random/286x180?sig=1" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title font-monospace">{{ post.title }}</h5><hr>
+                    <p class="card-text">{{ post.description }}</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="posts/show/{{ post.id }}" class="btn btn-primary">Edit Post</a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-danger">Delete Post</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        @endeach
+    @else
+        <h3>No post yet!</h3>
+    @endif
+</div>
+
+@endsection

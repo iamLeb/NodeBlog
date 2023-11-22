@@ -2,6 +2,8 @@ const router = require('express').Router();
 const PageController = require('../controllers/PageController');
 const passport = require('passport');
 const UserController = require('../controllers/UserController');
+const PostController = require('../controllers/PostController');
+const CategoryController = require('../controllers/CategoryController');
 
 // import middleware
 const redirect = require('../middlewares/redirect');
@@ -17,6 +19,16 @@ router.get('/auth/google/redirect',passport.authenticate('google'), PageControll
 
 // Admin Routes
 router.get('/admin', redirect, UserController.index);
-router.get('/logout', UserController.logout);
+
+router.get('/admin/posts', redirect, PostController.index);
+router.get('/admin/posts/create', redirect, PostController.create);
+router.post('/admin/posts/store', redirect, PostController.store);
+
+// category Route
+router.get('/admin/categories', redirect, CategoryController.index);
+router.get('/admin/categories/create', redirect, CategoryController.create);
+router.post('/admin/categories', redirect, CategoryController.store);
+
+router.post('/admin/logout', redirect, UserController.logout);
 
 module.exports = router;
