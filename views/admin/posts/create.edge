@@ -1,0 +1,58 @@
+@layout('layouts/admin')
+@section('content')
+<div class="mb-5 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2 class="text-center">Create New Post</h2>
+    </div>
+    <div class="col-md-4">
+        <a href="posts/"><h4>View All Posts</h4></a>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form method="post" action="/admin/posts/store">
+          <div class="form-group mb-3">
+            <label for="title">Post Title</label>
+            <input name="title" type="text" class="form-control" id="title" placeholder="enter post title">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="description">Select Category</label>
+                    <select name="categoryId" class="form-control" id="description">
+                            <option selected disabled>-- Select Category --</option>
+                        @each(category in categories)
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        @endeach
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="description">Post Description</label>
+                    <input name="description" type="text" class="form-control" id="description" placeholder="enter post description">
+                </div>
+            </div>
+
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="content">Post Content</label>
+            <textarea name="content" placeholder="enter post content (body)" class="form-control" id="content" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary float-end">Create post</button>
+        </form>
+    </div>
+<div class="col-md-2"></div>
+
+
+</div>
+
+@endsection

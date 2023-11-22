@@ -1,0 +1,44 @@
+@layout('layouts/admin')
+@section('content')
+<div class="mb-5 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2 class="text-center">Categories</h2>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin/category/create"><h4>Create New Category</h4></a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card" style="width: 30rem;">
+          <div class="card-header">
+            Categories
+          </div>
+          <ul class="list-group list-group-flush">
+            @each(category in categories)
+                <li class="list-group-item">{{ category.name }}</li>
+            @endeach
+          </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Create New category
+          </div>
+          <form action="" method="post">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <input name="name" type="text" class="form-control" placeholder="enter category name">
+                </li>
+                <li class="list-group-item"><button class="btn btn-primary float-end">Create Category</button></li>
+              </ul>
+          </form>
+        </div>
+    </div>
+</div>
+
+@endsection

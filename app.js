@@ -9,6 +9,7 @@ const port = 3000;
 const routes = require('./routes/web');
 const setup = require('./config/setup');
 
+app.use(express.urlencoded({extended: true}));
 require('dotenv').config()
 app.use(engine); // use the express-edge templating
 app.set('view engine', `${__dirname}/views`)
