@@ -22,6 +22,7 @@ router.get('/admin', redirect, UserController.index);
 
 router.get('/admin/posts', redirect, PostController.index);
 router.get('/admin/posts/create', redirect, PostController.create);
+router.get('/admin/posts/show/:id', redirect, PostController.show);
 router.post('/admin/posts/store', redirect, PostController.store);
 
 // category Route

@@ -34,7 +34,11 @@ const store = (req, res) => {
 }
 
 const show = (req, res) => {
-
+    const id = req.params.id;
+    Post.findById(id)
+        .then(post => {
+            res.render('admin/posts/show', { post });
+        });
 }
 
 const update = (req, res) => {
