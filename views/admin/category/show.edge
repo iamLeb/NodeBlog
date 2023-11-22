@@ -1,0 +1,30 @@
+@layout('layouts/admin')
+@section('content')
+<div class="mb-5 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2 class="text-center">Update Category</h2>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin/categories/"><h4>View All Category</h4></a>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form method="post" action="/admin/categories/update/{{ category.id }}">
+          <div class="form-group mb-3">
+            <label for="category">Category Name</label>
+            <input value="{{ category.name }}" name="name" type="text" class="form-control" id="category" placeholder="enter category name">
+          </div>
+
+          <button type="submit" class="btn btn-primary float-end">Update Category</button>
+        </form>
+    </div>
+<div class="col-md-2"></div>
+
+
+</div>
+
+@endsection
