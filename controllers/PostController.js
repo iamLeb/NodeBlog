@@ -1,5 +1,6 @@
 const Post = require('../models/Post');
 const Category = require('../models/Category');
+const model = require("../models/Model");
 
 const index = (req, res) => {
     Post.find()
@@ -28,9 +29,7 @@ const create = (req, res) => {
 const store = (req, res) => {
     // store requests
     req.body.user = req.user.name;
-    new Post(req.body)
-        .save();
-    res.redirect('/admin/posts');
+    model.store(req, res, Post, '/admin/posts');
 }
 
 const show = (req, res) => {
@@ -42,13 +41,12 @@ const show = (req, res) => {
 }
 
 const update = (req, res) => {
-    const id = req.params.id;
     // update based on id
+    model.update(req, res, Post, '/admin/posts');
 }
 
 const destroy = (req, res) => {
-    const id = req.params.id;
-    // delete based on id
+    model.destroy(req, res, Post, '/admin/posts')
 }
 
 module.exports = {
